@@ -1,0 +1,108 @@
+
+#include "inventario.hh"
+#include "almacen.hh"
+#include <string>
+#include <iostream>
+
+int main(){
+	string opt;
+	almacen A;
+	inventario I;
+	A.inicializar_almacen();
+	while((cin >> opt) and (opt != "fin")){
+		if(opt == "poner_prod"){
+			string id;
+			cin >> id;
+			cout << opt << " " << id << endl;
+			I.poner_prod(id);
+		}
+		else if(opt == "quitar_prod"){
+			string id;
+			cin >> id;
+			cout << opt << " " << id << endl;
+			I.quitar_prod(id);
+		}
+		else if(opt == "poner_items"){
+			int n, cantidad;
+			string id;
+			cin >> n >> id >> cantidad;
+			cout << opt << " " << n << " " << id << " " << cantidad << endl;
+			if(not I.eesta(id)) cout << "  " << "error" << endl;
+			else { 
+				int sobra = A.poner_items(n, id, cantidad);
+				cout << "  " << sobra << endl;
+				I.poner_unidad(id, cantidad-sobra);
+			}
+		}
+		else if(opt == "quitar_items"){
+			int n, cantidad;
+			string id;
+			cin >> n >> id >> cantidad;
+			cout << opt << " " << n << " " << id << " " << cantidad << endl;
+			if(not I.eesta(id)) cout << "  " << "error" << endl;
+			else{
+				int sobra = A.quitar_items(n, id, cantidad);
+				cout << "  " << sobra << endl;
+				I.quitar_unidad(id, cantidad-sobra);
+			}
+		}
+		else if(opt == "distribuir"){
+			string id;
+			int cantidad;
+			cin >> id >> cantidad;
+			cout << opt << " " << id << " " << cantidad << endl;
+			if(not I.eesta(id)) cout << "  " << "error" << endl;
+			else{ 
+				int sobra = A.distribuir(id, cantidad);
+				cout << "  " << sobra << endl;
+				I.poner_unidad(id, cantidad-sobra);
+			}
+		}
+		else if(opt == "compactar"){
+			int n;
+			cin >> n;
+			cout << opt << " " << n << endl;
+			A.compactar(n);
+		}
+		else if(opt == "reorganizar"){
+				int n;
+				cin >> n;
+				cout << opt << " " << n << endl;
+				A.reorganizar(n);
+		}
+		else if(opt == "redimensionar"){
+				int n,f,c;
+				cin >> n >> f >> c;
+				cout << opt << " " << n << " " << f << " " << c << endl;
+				bool error;
+				A.redimensionar(n,f,c,error);
+				if(error) cout << "  " << "error" << endl;
+		}
+		else if(opt == "inventario"){
+				cout << opt << endl;
+				I.consul_inventario();
+		}
+		else if(opt == "escribir"){
+				int n;
+				cin >> n;
+				cout << opt << " " << n << endl;
+				A.escribir(n);
+		}
+		else if(opt == "consultar_pos"){
+				int s,f,c;
+				cin >> s >> f >> c;
+				cout << opt << " " << s << " " << f << " " << c << endl;
+				A.consultar_pos(s,f,c);
+		}
+		else if(opt == "consultar_prod"){
+				string id;
+				cin >> id;
+				cout << opt << " " << id << endl;
+				if(I.eesta(id)){
+					I.consultar_prod(id);
+				}
+				else cout << "  " << "error" << endl;
+		}
+	}
+	cout << "fin" << endl;
+}

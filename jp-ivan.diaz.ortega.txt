@@ -1,0 +1,132 @@
+// Este juego de pruebas pone especial impetu en la comprobacion del buen funcionamiento del programa
+// en una situacion en la que en el almacen hay una sala con una sala con estanteria de cero filas y cero columnas
+
+
+//Entrada
+    //Comentada
+5
+3 5 2 0 0 4 0 1 0 0 0
+# Se inicializan el almacen con las salas de manera que no haya un orden creciente (o no tenga por qué) para
+# comprovar que la inicializacion y el funcionamiento del almacen no depende de este orden.
+
+3 9
+5 6
+1 7
+2 4
+0 0
+# Se inicializa esta sala con cero filas y cero columnas para así comprovar que no se da ningun error a la hora de utilizar
+# esta sala para añadir y quitar items, al escribir su contenido o consultar posiciones de la estanteria
+
+
+escribir 1
+escribir 2
+escribir 3
+escribir 4
+escribir 5
+# Esto es para comprobar que las salas se han inicializado correctamente y que la sala inicializada con cero filas y cero columnas
+# Los productos que se añaden tienen como identificador letras mayusculas y minusculas para comprobar que esta diferenciacion afecta al orden
+poner_prod AaAa
+poner_items 5 AaAa 40
+# Para comprobar su funcionamiento en la sala vacia
+inventario
+# Para seguir comprobando que funciona correctamente
+quitar_items 5 AaAa 15
+poner_prod aAaA
+inventario
+distribuir aAaA 200
+compactar 5
+reorganizar 5
+escribir 5
+redimensionar 5 2 9
+escribir 5
+poner_items 5 aAaA 6
+fin
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------
+    //Sin comentar
+5
+3 5 2 0 0 4 0 1 0 0 0
+3 9
+0 0
+5 6
+1 7
+2 4
+escribir 1
+escribir 2
+escribir 3
+escribir 4
+escribir 5
+poner_prod AaAa
+poner_items 5 AaAa 40
+inventario
+quitar_items 5 AaAa 15
+poner_prod aAaA
+inventario
+distribuir aAaA 200
+compactar 5
+reorganizar 5
+escribir 5
+redimensionar 5 2 9
+escribir 5
+poner_items 5 aAaA 6
+fin
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------
+//Salida
+    //Comentada
+escribir 1
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  0
+escribir 2
+  0
+escribir 3
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  0
+escribir 4
+  NULL NULL NULL NULL NULL NULL NULL
+  0
+escribir 5
+  NULL NULL NULL NULL
+  NULL NULL NULL NULL
+  0
+# Con esto se comprueba que las salas se han inicializado correctamente
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------
+    //Sin comentar
+escribir 1
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL NULL NULL NULL
+  0
+escribir 2
+  0
+escribir 3
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  NULL NULL NULL NULL NULL NULL
+  0
+escribir 4
+  NULL NULL NULL NULL NULL NULL NULL
+  0
+escribir 5
+  NULL NULL NULL NULL
+  NULL NULL NULL NULL
+  0
+poner_prod AaAa
+poner_items 5 AaAa 40
+  40
+
+
+#-----------------------------------------------------------------------------------------------------------------------------
