@@ -7,14 +7,6 @@ sala::sala(){
 	f = c = 0;
 }
 
-sala::sala(const sala& s){
-	num_items = s.num_items;
-	num_items_max = s.num_items_max;
-	estanteria = s.estanteria;
-	f = s.f;
-	c = s.c;
-}
-
 sala::sala(int fil, int col){
 	int size = fil*col;
 	vector<string> aux(size, "{}");

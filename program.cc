@@ -1,8 +1,26 @@
 
 #include "inventario.hh"
-#include "almacen.hh"
+#include "Almacen.hh"
+#ifndef NO_DIAGRAM
 #include <string>
 #include <iostream>
+#endif
+
+/** @mainpage 
+   El programa principal, que se encuentra en el modulo program.cc, hace de menu para decidir, en cada operacion,
+   cual es el modulo indicado para ejecutar esta orden.
+   Teniendo en cuenta los tipos de datos que se van a necesitar para hacer la simulacion del almacen serian necesarios
+   tres modulos: uno para hacer de almacen como tal, que se encargaria de la gestion de las salas, otro para las salas, asi
+   poder hacer las operaciones necesarias para cada sala y tener un control de los productos en cada una de ellas de forma independiente,
+   y otro modulo para hacer de inventario donde se llevaria un registro de todos los productos del almacen asi como de la cantidad que hay
+   de cada uno. */
+
+/** @file program.cc
+   
+   Este modulo se utiliza, principalmente, como menu para las diferentes operaciones que se pueden hacer con el almacen.
+   Ademas tambien se comprueban la gran mayoria de errores de entrada y se dan las correspondientes respuestas a estos (la
+   unica excepcion es el modulo inventaro, ya que este genera sus propios mensajes de error). Para seleccionar que operacion ejecutar
+   se utiliza una entrada en forma de string. */
 
 int main(){
 	string opt;

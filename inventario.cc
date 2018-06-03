@@ -13,7 +13,7 @@ void inventario::poner_prod(string id){
 void inventario::quitar_prod(string id){
 	map<string, int>::iterator it = inv.find(id);
 	if(it != inv.end() and inv[id] == 0){
-		inv.erase(id);
+		inv.erase(it);
 	}
 	else cout << "  " << "error" << endl;
 }

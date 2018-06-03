@@ -1,4 +1,4 @@
-#include "almacen.hh"
+#include "Almacen.hh"
 
 almacen::almacen(){}
 
